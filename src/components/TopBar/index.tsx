@@ -15,7 +15,7 @@ const TopBar = ({ handleSearch }: TopBarProps) => {
   return (
     <S.Bar>
       <Container maxWidth="lg">
-        <Box py={10}>
+        <Box py={9}>
           <Typography variant="h6" mb={2}>
             Search books by Openlibrary API
           </Typography>

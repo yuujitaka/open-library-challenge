@@ -1,8 +1,5 @@
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import CardMedia from "@mui/material/CardMedia";
 
-import logo from "../../assets/logo.png";
 import * as S from "./styles";
 
 type BookCardProps = {
@@ -20,12 +17,12 @@ const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
         image={`http://covers.openlibrary.org/b/id/${cover_i}-M.jpg`}
       />
       <CardContent>
-        <Typography gutterBottom variant="body1">
+        <S.BookText gutterBottom variant="body1" title={title}>
           {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
+        </S.BookText>
+        <S.BookText variant="body2" color="text.secondary">
           <em>{String(author_name)}</em>
-        </Typography>
+        </S.BookText>
       </CardContent>
     </S.BookContainer>
   );

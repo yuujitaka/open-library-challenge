@@ -57,6 +57,7 @@ const BookCard = ({
             }
             onClick={handleClickOpen}
             loading="lazy"
+            alt={title}
           />
         </Box>
         <CardContent>

@@ -11,7 +11,7 @@ const Empty = ({ message }: { message: string }) => {
       justifyContent="center"
       sx={{ height: "calc(100vh - 239px)" }}
     >
-      <img src={emptyImage} alt="Logo" width="250px" />
+      <img src={emptyImage} alt="empty state image" width="250px" />
       <Typography variant="subtitle1" mt={3}>
         {message}
       </Typography>

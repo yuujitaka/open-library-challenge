@@ -95,9 +95,13 @@ const Home = () => {
                       xl={isGrid ? 2 : undefined}
                     >
                       <BookCard
+                        key={item.key}
                         author_name={item.author_name}
                         title={item.title}
                         cover_i={item.cover_i}
+                        first_publish_year={item.first_publish_year}
+                        isbn={item.isbn}
+                        type={viewType}
                       />
                     </Grid>
                   ))}

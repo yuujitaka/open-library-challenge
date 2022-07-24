@@ -6,6 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
 
 import notFoundImage from "../../assets/undraw_no_data.svg";
 import * as S from "./styles";
@@ -14,9 +15,19 @@ type BookCardProps = {
   author_name: string[];
   title: string;
   cover_i: number;
+  first_publish_year: number;
+  isbn: number[];
+  type: string;
 };
 
-const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
+const BookCard = ({
+  author_name,
+  title,
+  cover_i,
+  first_publish_year,
+  isbn,
+  type,
+}: BookCardProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoadedImage, setIsLoadedImage] = useState(false);
 
@@ -30,9 +41,14 @@ const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
 
   return (
     <>
-      <S.BookContainer variant="outlined">
-        <Box pt={2} display="flex" justifyContent="center">
-          <img
+      <S.BookContainer variant="outlined" type={type}>
+        <Box
+          pt={2}
+          pl={type === "list" ? 2 : 0}
+          display="flex"
+          justifyContent="center"
+        >
+          <S.BookThumbnail
             height="168"
             src={
               cover_i
@@ -49,8 +65,16 @@ const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
             {title}
           </S.BookText>
           <S.BookText variant="body2" color="text.secondary">
-            <em>{String(author_name)}</em>
+            <em>{String(author_name || "Unknown")}</em>
           </S.BookText>
+          {type === "list" && (
+            <>
+              <S.BookText variant="body2" color="text.secondary" my={2}>
+                First Publication Year: <strong>{first_publish_year}</strong>
+              </S.BookText>
+              <Chip label={isbn?.[0]} />
+            </>
+          )}
         </CardContent>
       </S.BookContainer>
 

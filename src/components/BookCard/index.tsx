@@ -71,7 +71,7 @@ const BookCard = ({
               <S.BookText variant="body2" color="text.secondary" my={2}>
                 First Publication Year: <strong>{first_publish_year}</strong>
               </S.BookText>
-              <Chip label={isbn?.[0]} />
+              {isbn && <Chip label={isbn[0]} />}
             </>
           )}
         </CardContent>

@@ -27,13 +27,13 @@ const ResultsContainer = ({ viewType, data }: ResultsContainerProps) => {
       {data?.docs?.map((item: Doc) => (
         <Grid
           item
+          key={item.key}
           xs={isGrid ? 6 : 12}
           sm={isGrid ? 4 : undefined}
           lg={isGrid ? 3 : undefined}
           xl={isGrid ? 2 : undefined}
         >
           <BookCard
-            key={item.key}
             author_name={item.author_name}
             title={item.title}
             cover_i={item.cover_i}

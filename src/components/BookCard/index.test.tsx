@@ -1,6 +1,6 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import BookCard from "./";
+import BookCard from ".";
 
 const book = {
   author_name: ["Name"],
@@ -31,13 +31,13 @@ describe("<BookCard />", () => {
     expect(isbn).toBeInTheDocument();
   });
 
-  test("Opens modal when image is clicked", () => {
+  test("Opens modal when image is clicked", async () => {
     render(<BookCard {...book} type="grid" />);
 
     const image = screen.getByRole("img", { name: book.title });
     userEvent.click(image);
 
-    const modal = screen.findByRole("presentation");
-    waitFor(() => expect(modal).toBeInTheDocument());
+    const modal = await screen.findByRole("dialog");
+    expect(modal).toBeInTheDocument();
   });
 });

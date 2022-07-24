@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/open-library-challenge/static/css/main.e6c13ad2.css",
-    "main.js": "/open-library-challenge/static/js/main.6a765223.js",
+    "main.js": "/open-library-challenge/static/js/main.16f28eb2.js",
     "static/js/787.7e135e64.chunk.js": "/open-library-challenge/static/js/787.7e135e64.chunk.js",
     "static/media/undraw_searching.svg": "/open-library-challenge/static/media/undraw_searching.7e087bebadfbd5b882ea87f9840ebcea.svg",
     "static/media/undraw_no_data.svg": "/open-library-challenge/static/media/undraw_no_data.3995511afd1b90c25da6aff07772c1e2.svg",
     "index.html": "/open-library-challenge/index.html",
     "main.e6c13ad2.css.map": "/open-library-challenge/static/css/main.e6c13ad2.css.map",
-    "main.6a765223.js.map": "/open-library-challenge/static/js/main.6a765223.js.map",
+    "main.16f28eb2.js.map": "/open-library-challenge/static/js/main.16f28eb2.js.map",
     "787.7e135e64.chunk.js.map": "/open-library-challenge/static/js/787.7e135e64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.6a765223.js"
+    "static/js/main.16f28eb2.js"
   ]
 }

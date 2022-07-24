@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 
+import notFoundImage from "../../assets/undraw_no_data.svg";
 import * as S from "./styles";
 
 type BookCardProps = {
@@ -33,7 +34,11 @@ const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
         <Box pt={2} display="flex" justifyContent="center">
           <img
             height="168"
-            src={`http://covers.openlibrary.org/b/id/${cover_i}-M.jpg`}
+            src={
+              cover_i
+                ? `http://covers.openlibrary.org/b/id/${cover_i}-M.jpg`
+                : notFoundImage
+            }
             onClick={handleClickOpen}
             loading="lazy"
           />
@@ -63,8 +68,13 @@ const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
         <DialogContent>
           <Box display="flex" justifyContent="center">
             <S.BookImage
-              src={`http://covers.openlibrary.org/b/id/${cover_i}-L.jpg`}
+              src={
+                cover_i
+                  ? `http://covers.openlibrary.org/b/id/${cover_i}-L.jpg`
+                  : notFoundImage
+              }
               onLoad={() => setIsLoadedImage(true)}
+              noImage={!cover_i}
               isLoadedImage={isLoadedImage}
             />
             {!isLoadedImage && <CircularProgress />}

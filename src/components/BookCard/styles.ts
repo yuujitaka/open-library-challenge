@@ -12,8 +12,12 @@ export const BookContainer = styled(Card)`
   height: 320px;
 `;
 
-export const BookImage = styled.img<{ isLoadedImage: boolean }>`
+export const BookImage = styled.img<{
+  isLoadedImage: boolean;
+  noImage: boolean;
+}>`
   display: ${({ isLoadedImage }) => (isLoadedImage ? "block" : "none")};
+  max-width: ${({ noImage }) => (noImage ? "300px" : "unset")};
 `;
 
 export const BookText = styled(Typography)`

@@ -32,7 +32,7 @@ const Home = () => {
 
   const handleSearch = debounce((e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-  }, 1000);
+  }, 500);
 
   const handlePage = (e: ChangeEvent<unknown>, value: number) => {
     setPage(value);

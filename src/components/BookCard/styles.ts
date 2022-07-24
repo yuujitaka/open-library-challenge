@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import DialogTitle from "@mui/material/DialogTitle";
 
 export const BookContainer = styled(Card)`
   display: flex;
@@ -11,10 +12,8 @@ export const BookContainer = styled(Card)`
   height: 320px;
 `;
 
-export const BookImage = styled.img`
-  align-self: center;
-  width: auto;
-  padding-top: 16px;
+export const BookImage = styled.img<{ isLoadedImage: boolean }>`
+  display: ${({ isLoadedImage }) => (isLoadedImage ? "block" : "none")};
 `;
 
 export const BookText = styled(Typography)`
@@ -24,4 +23,10 @@ export const BookText = styled(Typography)`
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
+`;
+
+export const Title = styled(DialogTitle)`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;

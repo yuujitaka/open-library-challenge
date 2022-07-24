@@ -43,7 +43,7 @@ const BookCard = ({
     <>
       <S.BookContainer variant="outlined" type={type}>
         <Box
-          pt={2}
+          pt={type === "list" ? 0 : 2}
           pl={type === "list" ? 2 : 0}
           display="flex"
           justifyContent="center"

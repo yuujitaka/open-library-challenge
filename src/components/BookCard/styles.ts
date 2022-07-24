@@ -6,10 +6,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 export const BookContainer = styled(Card)<{ type: string }>`
   display: flex;
   flex-direction: ${({ type }) => (type === "grid" ? "column" : "row")};
+  align-items: ${({ type }) => (type === "grid" ? "unset" : "center")};
   box-shadow: 3px 3px 15px 1px #ebedf3;
   border: none;
   border-radius: 4px;
-  height: ${({ type }) => (type === "grid" ? "320px" : "200px")}; ;
+  height: ${({ type }) => (type === "grid" ? "320px" : "216px")};
 `;
 
 export const BookThumbnail = styled.img`
@@ -17,6 +18,11 @@ export const BookThumbnail = styled.img`
   :hover {
     box-shadow: 3px 3px 10px #ebedf3;
     transform: scale(1.01);
+  }
+
+  @media (max-width: 600px) {
+    max-width: 110px;
+    object-fit: cover;
   }
 `;
 

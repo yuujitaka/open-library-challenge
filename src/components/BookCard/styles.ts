@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 export const BookContainer = styled(Card)`
@@ -12,11 +11,11 @@ export const BookContainer = styled(Card)`
   height: 320px;
 `;
 
-export const BookImage = styled(CardMedia)`
+export const BookImage = styled.img`
   align-self: center;
   width: auto;
   padding-top: 16px;
-` as typeof CardMedia;
+`;
 
 export const BookText = styled(Typography)`
   overflow: hidden;

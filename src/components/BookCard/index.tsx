@@ -12,9 +12,8 @@ const BookCard = ({ author_name, title, cover_i }: BookCardProps) => {
   return (
     <S.BookContainer variant="outlined">
       <S.BookImage
-        component="img"
         height="168"
-        image={`http://covers.openlibrary.org/b/id/${cover_i}-M.jpg`}
+        src={`http://covers.openlibrary.org/b/id/${cover_i}-M.jpg`}
       />
       <CardContent>
         <S.BookText gutterBottom variant="body1" title={title}>

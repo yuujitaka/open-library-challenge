@@ -8,6 +8,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import IconButton from "@mui/material/IconButton";
+import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
 
 import TopBar from "../components/TopBar";
 import BookCard from "../components/BookCard";
@@ -18,8 +21,10 @@ const Home = () => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState("100");
+  const [viewType, setViewType] = useState("grid");
   const { data, isFetching } = useSearchBooks(query, page, limit);
   const startShowing = (page - 1) * parseInt(limit) + 1;
+  const isGrid = viewType === "grid";
   const endShowing = Math.min(
     startShowing + parseInt(limit) - 1,
     data?.numFound
@@ -38,17 +43,41 @@ const Home = () => {
     setLimit(event.target.value);
   };
 
+  //TODO: ITEM ANY
+
   return (
     <>
       <TopBar handleSearch={handleSearch} />
       <Container maxWidth="lg">
         {query ? (
           <Box py={4}>
-            <Typography gutterBottom variant="body1">
-              {isFetching
-                ? "Searching..."
-                : `Showing ${startShowing}-${endShowing} of ${data?.numFound} results`}
-            </Typography>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography gutterBottom variant="body1">
+                {isFetching
+                  ? "Searching..."
+                  : `Showing ${startShowing}-${endShowing} of ${data?.numFound} results`}
+              </Typography>
+              <Box>
+                <IconButton
+                  aria-label="Grid view"
+                  color={viewType === "grid" ? "primary" : "default"}
+                  onClick={() => setViewType("grid")}
+                >
+                  <GridViewRoundedIcon />
+                </IconButton>
+                <IconButton
+                  aria-label="List view"
+                  color={viewType === "list" ? "primary" : "default"}
+                  onClick={() => setViewType("list")}
+                >
+                  <TableRowsRoundedIcon />
+                </IconButton>
+              </Box>
+            </Box>
             <hr />
             {isFetching ? (
               <Box display="flex" justifyContent="center" mt={2}>
@@ -58,7 +87,13 @@ const Home = () => {
               <>
                 <Grid container spacing={4}>
                   {data?.docs.map((item: any) => (
-                    <Grid item xs={6} sm={4} lg={3} xl={2}>
+                    <Grid
+                      item
+                      xs={isGrid ? 6 : 12}
+                      sm={isGrid ? 4 : undefined}
+                      lg={isGrid ? 3 : undefined}
+                      xl={isGrid ? 2 : undefined}
+                    >
                       <BookCard
                         author_name={item.author_name}
                         title={item.title}

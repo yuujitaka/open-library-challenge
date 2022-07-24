@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../../services";
 
-//TODO: create type for params
 const searchBooks = async (query: string, page: number, limit: string) => {
   const response = await api.get(
     `/search.json?title=${query}&page=${page}&limit=${limit}`
   );
+
   return response.data;
 };
 

@@ -59,7 +59,6 @@ const BookCard = ({
             loading="lazy"
           />
         </Box>
-
         <CardContent>
           <S.BookText gutterBottom variant="body1" title={title}>
             {title}
@@ -77,7 +76,6 @@ const BookCard = ({
           )}
         </CardContent>
       </S.BookContainer>
-
       <Dialog
         open={modalOpen}
         onClose={handleClose}

@@ -1,21 +1,21 @@
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import emptyImage from "../../assets/undraw_searching.svg";
+import * as S from "./styles";
 
 const Empty = ({ message }: { message: string }) => {
   return (
-    <Box
+    <S.EmptyContainer
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      sx={{ height: "calc(100vh - 239px)" }}
+      py={2}
     >
       <img src={emptyImage} alt="empty state" width="250px" />
       <Typography variant="subtitle1" mt={3}>
         {message}
       </Typography>
-    </Box>
+    </S.EmptyContainer>
   );
 };
 
